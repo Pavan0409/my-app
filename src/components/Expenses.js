@@ -1,33 +1,30 @@
-import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css";
+import "./Expenses.css"
+import "./ExpenseItem.css";
 
 function Expenses(props) {
+
+  const month = props.date.toLocaleString("en-US", { month: "long" });
+  const day = props.date.toLocaleString("en-US", { day: "2-digit" });
+  const year = props.date.getFullYear();
+
   return (
-    <div className="expenses">
-      <ExpenseItem
-        title={props.item[0].title}
-        amount={props.item[0].amount}
-        date={props.item[0].date}
-        LocationOfExpenditure={props.item[0].LocationOfExpenditure}
-      />
-      <ExpenseItem
-        title={props.item[1].title}
-        amount={props.item[1].amount}
-        date={props.item[1].date}
-        LocationOfExpenditure={props.item[1].LocationOfExpenditure}
-      />
-      <ExpenseItem
-        title={props.item[2].title}
-        amount={props.item[2].amount}
-        date={props.item[2].date}
-        LocationOfExpenditure={props.item[2].LocationOfExpenditure}
-      />
-      <ExpenseItem
-        title={props.item[3].title}
-        amount={props.item[3].amount}
-        date={props.item[3].date}
-        LocationOfExpenditure={props.item[3].LocationOfExpenditure}
-      />
+    <div className="expense-item">
+      {/* <ExpenseDate date={props.date} /> */}
+      <div className="expense-date">
+        <div className="expense-date__month">{month}</div>
+        <div className="expense-date__year">{year}</div>
+        <div className="expense-date__day">{day}</div>
+      </div>
+
+      <div>
+        <h1>{props.title}</h1>
+        <div>
+          <h1>{props.LocationOfExpenditure}</h1>
+        </div>
+      </div>
+      <div className="expense-item__description">
+        <div className="expense-item__price">₹{props.amount}</div>
+      </div>
     </div>
   );
 }
