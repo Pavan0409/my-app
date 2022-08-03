@@ -39,7 +39,6 @@ const App = () => {
       <h2>let's get started!</h2>
       <NewExpense />
       <Expenses item={expenses} />
-      
     </div>
   );
 };
