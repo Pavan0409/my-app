@@ -33,11 +33,15 @@ const App = () => {
       LocationOfExpenditure: "Jublee hills",
     },
   ];
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  }
 
   return (
     <div>
       <h2>let's get started!</h2>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses item={expenses} />
     </div>
   );
